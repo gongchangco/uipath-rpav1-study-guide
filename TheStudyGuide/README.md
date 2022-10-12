@@ -17,6 +17,9 @@ Everything is in the UiPath exam documentation and from the UiPath Associate Lea
 * Not dependent on users to trigger processes, as they are controlled through Orchestrator
 * Runs on any machine connected to Orchestrator, usually dedicated machines are used
 
+##### Reference
+[https://docs.uipath.com/robot/docs/attended-vs-unattended](https://docs.uipath.com/robot/docs/attended-vs-unattended)
+
 > Explain the functionality and interactions of UiPath products; Studio, Orchestrator, and Assistant
 
 #### UiPath Studio Interface
@@ -48,7 +51,7 @@ Everything is in the UiPath exam documentation and from the UiPath Associate Lea
 #### UiPath Orchestrator
 * Manages all the published automation solutions developed in Studio
 * Execute of tasks by robots
-* Execution schedules
+* Execute schedules
 
 **Capabilities**
 * Provisioning
@@ -62,7 +65,7 @@ Everything is in the UiPath exam documentation and from the UiPath Associate Lea
 #### UiPath Robots
 * Are known as execution agents, execute the workflows created in UiPath Studio.
 
-**Robot Types**
+##### Robot Types
 * Standard
 * Floating
 
@@ -77,6 +80,9 @@ Everything is in the UiPath exam documentation and from the UiPath Associate Lea
 #### What is Debugging?
 
 The process of identifying and resolving errors that prevent the project from functioning correctly. It is recommended to perform debugging during the design stage of the automation project, at activity, file and project level. By default, debugging is performed on the local robot.
+
+##### Reference
+(https://docs.uipath.com/studio/docs/about-debugging)[https://docs.uipath.com/studio/docs/about-debugging]
 
 #### Start Debugging
 
