@@ -20,6 +20,8 @@ Everything is in the UiPath exam documentation and from the UiPath Associate Lea
 ##### Reference
 [https://docs.uipath.com/robot/docs/attended-vs-unattended](https://docs.uipath.com/robot/docs/attended-vs-unattended)
 
+---
+
 > Explain the functionality and interactions of UiPath products; Studio, Orchestrator, and Assistant
 
 #### UiPath Studio Interface
@@ -82,7 +84,7 @@ Everything is in the UiPath exam documentation and from the UiPath Associate Lea
 The process of identifying and resolving errors that prevent the project from functioning correctly. It is recommended to perform debugging during the design stage of the automation project, at activity, file and project level. By default, debugging is performed on the local robot.
 
 ##### Reference
-(https://docs.uipath.com/studio/docs/about-debugging)[https://docs.uipath.com/studio/docs/about-debugging]
+[https://docs.uipath.com/studio/docs/about-debugging](https://docs.uipath.com/studio/docs/about-debugging)
 
 #### Start Debugging
 
@@ -136,6 +138,8 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 * Remote Debugging
 * Open Logs
 
+---
+
 > Identify how to manage dependencies
 
 #### Adding Dependencies
@@ -149,6 +153,8 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 1. Click on Manage Packages in the Design ribbon tab
 2. In Project Dependencies, under Version click on Update
 3. Click Save
+
+---
 
 > Understand the significance of connecting an automation project to a version control solution
 
@@ -192,7 +198,52 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 
 > Describe the different variables' types, how they are used, managed, and the best practice for using the variable scope
 
+#### Variables
+* Variables are containers that can hold multiple data entries (values) of the same data type
+* The value of a variable can change through an external input, data manipulation, or passing from one activity to another
+* Used to store multiple types of data
+
+#### Create Variables
+1. Press `Ctrl + K` in an activity input field that requires a variable
+2. Select the `Create Variable` option in the Variables panel
+3. Press `Ctrl + K` in an input field that requires a variable in the Properties panel
+4. By performing right-click in the input field and selecting the `Create Variable` option
+
+##### Reference
+[https://docs.uipath.com/studio/docs/managing-variables](https://docs.uipath.com/studio/docs/managing-variables)
+
+#### Variable Types
+
+
+---
+
 > Describe the functions and differences between variables and arguments; including how arguments are used, managed, and best practices
+
+|Variables|Arguments|
+|---------|---------|
+|Used to pass data from one activity to another within a workflow|Used to pass data from a workflow to another|
+|Don't have directions like In, Out, or In/Out|Do have directions like In, Out, In/Out|
+|To create a variable press: Ctrl + K|To create an In Argument press: Ctrl + M<br/>To create an Out Argument press: Ctrl + Shift + M|
+|To create variables, there must be at least one activity in the Designer Panel|Can be created if the Designer Panel doesn't contain any activity|
+|Variables aren't used with the Invoke workflow file and Launch workflow Interactive activities|Used a lot in relation with the Invoke workflow file and Launch workflow Interactive activities|
+|Require a defined scope|Do not require a scope|
+
+
+#### Arguments
+* Arguments are used to pass data from a project to another
+* They resemble variables, as they store data dynamically and pass it on
+
+#### Create Arguments
+1. From the Body of an Activity
+2. From Expressions
+3. From Properties Panel
+4. From Arguments Panel
+
+#### Removing Arguments
+
+##### Reference
+[https://docs.uipath.com/studio/docs/managing-arguments](https://docs.uipath.com/studio/docs/managing-arguments)
+
 
 ### UiPath Studio – Classic Selectors
 
