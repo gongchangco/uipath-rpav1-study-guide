@@ -6,4 +6,7 @@ A study guide for the UiRPA exam. It is whatever is written according to the UiP
 2. The Current UiRPA Exam Description Document [Click Here](https://uipath.com/learning/certification/UCP-UiRPA-ExamDescription)
 3. The UiPath Documentation [Click Here](https://docs.uipath.com)
 
-### Just build a program with any code that web scrapes through keywords from the Exam document and the rest is history.
+> Some Useful Hands-on Experience
+1. Udemy
+2. Coursera
+3. UiPath Learning Partners

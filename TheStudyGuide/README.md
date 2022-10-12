@@ -19,11 +19,6 @@ Everything is in the UiPath exam documentation on the UiPath website. It's just 
 
 > Explain the functionality and interactions of UiPath products; Studio, Orchestrator, and Assistant
 
-**The BIG three**
-1. UiPath Studio
-2. UiPath Orchestrator
-3. UiPath Robots
-
 #### UiPath Studio Interface
 
 **The Designer Panel**
@@ -64,7 +59,7 @@ Everything is in the UiPath exam documentation on the UiPath website. It's just 
 * Integrated Connectivity
 * Version Control
 
-#### Robots
+#### UiPath Robots
 * Are known as execution agents, execute the workflows created in UiPath Studio.
 
 **Robot Types**
@@ -135,7 +130,6 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 * Remote Debugging
 * Open Logs
 
-
 > Identify how to manage dependencies
 
 #### Adding Dependencies
@@ -188,7 +182,6 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 * Undo      :   Will revert the changes done after the last commit
 * Commit    :   Will save the changes to the local repository
 
-
 ### UiPath Studio – Variables and Arguments
 
 > Describe the different variables' types, how they are used, managed, and the best practice for using the variable scope
@@ -207,4 +200,31 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 
 ### UiPath Studio – Control Flow
 
-### UiPath Studio – Control Flow
+> Describe the functionality of the Control Flow activities (for example: If, Switch, While, Do While, For Each, etc.) and workflow types
+
+> Explain how to use Control Flow activities and workflow types (sequences and flowcharts)
+
+> Explain the importance of error handling and how it can be implemented
+
+### UiPath Studio – Data Manipulation
+
+> Describe the importance and reasons why data manipulation is used; for example, conversion from one data type to another data type
+
+> Explain how strings can be manipulated; for example, by using VB string methods and RegEx Builder
+
+>  Explain how to iterate and manipulate data on various collections; for example, lists, datatables, dictionaries
+
+### UiPath Automation Concepts and Techniques
+
+> Identify and explain how email automation is used
+
+> Identify and describe Microsoft Excel functions and how Excel activities are used for spreadsheet manipulation
+
+> Describe the functions used to extract data from a .pdf file; for example, reading native text or using OCR
+
+
+### UiPath Orchestrator Overview
+
+> Identify and describe how UiPath Orchestrator queues and assets are used
+
+> Identify and explain how to publish projects to UiPath Orchestrator
