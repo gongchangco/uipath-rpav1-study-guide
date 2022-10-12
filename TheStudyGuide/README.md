@@ -1,5 +1,5 @@
 # Study Guide Here
-Everything is in the UiPath exam documentation on the UiPath website. It's just that finding the answers is hard and hope the answers found aligns with what you're going to get with on the exam. And hands-on training.
+Everything is in the UiPath exam documentation and from the UiPath Associate Learning Plan on the UiPath website. This study guide does not guarantee to pass the exam. 
 
 ## Exam Sections
 
@@ -21,28 +21,28 @@ Everything is in the UiPath exam documentation on the UiPath website. It's just 
 
 #### UiPath Studio Interface
 
-**The Designer Panel**
+##### The Designer Panel
 * Used to design automation projects by dragging and dropping activities into it.
 
-**The Project Panel**
+##### The Project Panel
 * Displayed as a tree structure, where the root node is the name of the project and the branches contain the dependencies, inputs, settings and project files
 
-**The Activities Panel**
+##### The Activities Panel
 * Helps you select the right activity to be added to your automation.
 
-**The Properties Panel**
+##### The Properties Panel
 * To manage the properties of various activities and to manage variables.
 
-**The Variables Panel**
+##### The Variables Panel
 * Enables you to create variables and make changes to them
 
-**The Arguments Panel**
+##### The Arguments Panel
 * Used when accessing a workflow to pass input through an argument or get the output from an argument or input/output from an argument.
 
-**The Output Panel**
+##### The Output Panel
 * To verify the results of the workflow using log messages or writing line activities
 
-**The Outline Panel**
+##### The Outline Panel
 * Used to view the hierarchy of the selected workflow and all nodes available inside the workflow
 
 #### UiPath Orchestrator
