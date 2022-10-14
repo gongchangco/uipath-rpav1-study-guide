@@ -77,7 +77,7 @@ Everything is in the UiPath exam documentation and from the UiPath Associate Lea
 4. Non-Production
 
 ### UiPath Studio Overview
-> Explain the debug functions and how they are used
+> Explain the debug functions and how they are used; for example, using Breakpoints
 
 #### What is Debugging?
 
@@ -98,7 +98,7 @@ The options for running and debugging a file or project are available in the Des
 
 Note that the default action of the Play button in the Ribbon is Debug Current File.
 
-#### The 'Hands-On' in the Debugging Panel
+#### The Debugging Panel
 
 The debugging actions located on both the Design or Debug ribbon tabs. However, the debugging process is not available if project files have validation errors
 
@@ -137,6 +137,24 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 * Picture in Picture
 * Remote Debugging
 * Open Logs
+
+#### Testing Activities
+
+#### Locals Panel
+
+#### Call Stack Panel
+
+#### Breakpoints Panel
+* Breakpoints are used to purposely pause the debugging process on an activity which may trigger execution issues
+* Setting a condition and/or hit count turns the simple breakpoint to a conditional breakpoint
+* Adding logging results turns the conditional breakpoint in a conditional tracepoint
+* Adding only a logging message transforms the breakpoint to a simple tracepoint
+
+#### Watch Panel
+
+#### Immediate Panel
+* The Immediate panel is only visible during debugging
+* Can be used for inspecting data available at a certain point during debugging
 
 ---
 
@@ -214,16 +232,20 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 
 #### Variable Types
 
+1. String
+    * A text or string variable is a type of variable that can store only strings
 
 ---
 
 > Describe the functions and differences between variables and arguments; including how arguments are used, managed, and best practices
 
+
+#### Variables vs. Arguments
 |Variables|Arguments|
 |---------|---------|
 |Used to pass data from one activity to another within a workflow|Used to pass data from a workflow to another|
 |Don't have directions like In, Out, or In/Out|Do have directions like In, Out, In/Out|
-|To create a variable press: Ctrl + K|To create an In Argument press: Ctrl + M<br/>To create an Out Argument press: Ctrl + Shift + M|
+|To create a variable press: `Ctrl + K`|To create an In Argument press: `Ctrl + M`<br/>To create an Out Argument press: `Ctrl + Shift + M`|
 |To create variables, there must be at least one activity in the Designer Panel|Can be created if the Designer Panel doesn't contain any activity|
 |Variables aren't used with the Invoke workflow file and Launch workflow Interactive activities|Used a lot in relation with the Invoke workflow file and Launch workflow Interactive activities|
 |Require a defined scope|Do not require a scope|
