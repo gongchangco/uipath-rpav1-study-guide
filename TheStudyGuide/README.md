@@ -103,35 +103,67 @@ Note that the default action of the Play button in the Ribbon is Debug Current F
 The debugging actions located on both the Design or Debug ribbon tabs. However, the debugging process is not available if project files have validation errors
 
 * Step Into
-    * To debug activities one at a time. When triggered, the debugger opens and highlights the activity before it is executed
+    * Used to debug activities one at a time
+    * When triggered, the debugger opens and highlights the activity before it is executed
     * When used with Invoke Workflow File activities, the workflow is opened in a new tab in `ReadOnly` mode and each activity is executed one by one
     * The keyboard shortcut for Step Into is `F11`
 * Step Over
-    * Does not open the current container. When used, the action debugs the next activity, highlighting containers without opening them
+    * Does not open the current container
+    * When used, the action debugs the next activity, highlighting containers (such as flowcharts, sequences, or Invoke Workflow File activities) without opening them
     * Comes in handy for skipping analysis of large containers which are unlikely to trigger any issues during execution
     * The keyboard shortcut for Step Over is `F10`
 * Step Out
-    * This action is used for stepping out and pausing the execution at the level of the current container. It completes the execution of activities in the current container, before pausing the debugging
+    * This action is used for stepping out and pausing the execution at the level of the current container
+    * Completes the execution of activities in the current container, before pausing the debugging
     * This option works well with nested sequences
     * The keyboard shortcut for Step Out is `Shift + F11`
 * Retry
-    * Re-executes the previous activity, and throws the exception if it's encountered again. The exception is highlighted and details about the error are shown in the `Locals` and `Call Stack` panels
+    * Re-executes the previous activity, and throws the exception if it's encountered again
+    * The activity which threw the exception is highlighted and details about the error are shown in the `Locals` and `Call Stack` panels
 * Ignore
-    * Ignore an encountered exception and continue the execution from the next activity so that the rest of the workflow can be debugged.
+    * Ignore an encountered exception and continue the execution from the next activity so that the rest of the workflow can be debugged
+    * Useful when jumping over the activity that threw the exception and continuing debugging the remaining part of the project
 * Restart
     * Available after the exception was thrown and the debug process is paused
     * The action is used for restarting the debugging process from the first activity of the project
+    * Use `Slow Step` to slow down the debugging speed and properly inspect activities as they are executed
+    * When using this option after using the `Run from this Activity` action, the debugging is restarted from the previously indicated activity
 * Break
-    * Allows you to pause the debugging process at any given amount. The activity which is being debugged remains highlighted when paused. Once this happens, you can choose to Continue, Step Into, Step Over, or Stop the process
-    * Recommended to use Break along with Slow Step so that you know exactly when the debugging needs to be paused
+    * Allows you to pause the debugging process at any given amount
+    * The activity which is being debugged remains highlighted when paused
+    * While paused, you can choose to Continue, Step Into, Step Over, or Stop the debugging process
+    * Recommended to use `Break` along with `Slow Step` so that you know exactly when the debugging needs to be paused
 * Focus
-    * Helps return to the current breakpoint or the activity that caused an error during debugging
+    * Helps you return to the current breakpoint or the activity that caused an error during debugging
+    * The Focus button is used after navigating through the process, as an easy way to return to the activity that caused the error and resume the debugging process
+    * When debugging is paused because a breakpoint was reached:
+        * `Focus` can be used for returning to said breakpoint, after navigating through activities contained in the automation process
+    * When the debugging is paused either after using `Step Into` or `Step Over` and then navigating through the process:
+        * `Focus` returns to the activity that paused the debugging process
+    * From the `Breakpoints` context menu:
+        * You can select `Focus` to highlight the activity with the breakpoint
 * Slow Step
-    * Enables to take a closer look at any activity during debugging
-    * Can be activated both before or during the debugging process. Activating the action does not pause debugging
-    * Comes with 4 different speeds tha range from 1X to 4X with 1X being the slowest
+    * Enables you to take a closer look at any activity during debugging
+    * While enabled, activities are highlighted in the debugging process
+    * Containers such as flowcharts, sequences, or Invoke Workflow File activities are opened
+    * Similar to using `Step Into`, but without having to pause the debugging process
+    * Can be activated both before or during the debugging process
+    * Does not pause debugging
+    * The action comes with 4 different speeds:
+        * The selected speed step runs the debugging process slower than the previous one
+        * Debugging with Slow Step at 1x runs it the slowest, and fastest at 4x
+        * The speed dictates how fast the debugger jumps from one activity to the next
+        * Each time you click `Slow Step` the speed changes by one step
 * Execution Trail
+    * The `Execution Trail` ribbon button is disabled by default
+    * When enabled, it shows the exact execution path at debugging
+    * As the process is executed, each activity is highlighted and marked in the `Designer` panel, showing you the execution as it happens:
+        * Executed activities are marked and highlighted in green
+        * Activities that were not executed are not marked in any way
+        * Activities that threw an exception are marked and highlighted in red
 * Highlight Elements
+    * If enabled, UI elements are highlighted during debugging
+    * The option can be used both with regular and step-by-step debugging
 * Log Activities
 * Continue on Exception
 * Picture in Picture
@@ -187,7 +219,7 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 * Restoring previous versions           : Restore older versions of the file at any time
 * Tracking different project versions   : New versions are usually saved with change descriptions. Versions of the same file can also be compared
 
-**Version Control Available**
+**Version Controls Available**
 * GIT   :   distributed version control system
 * TFS   :   centralized version control system
 * SVN   :   centralized version control system
@@ -230,10 +262,48 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 ##### Reference
 [https://docs.uipath.com/studio/docs/managing-variables](https://docs.uipath.com/studio/docs/managing-variables)
 
+#### Variable Properties
+1. Name:    Defines how the variable will be identified
+2. Type:    Defines what kind of data can be stored in the variable
+3. Scope:   Defines the part of the workflow where the variable can be used
+4. Default: Defines the value the variable is initialized with
+
 #### Variable Types
 
 1. String
     * A text or string variable is a type of variable that can store only strings
+    * Can be used to store any information such as employee names, usernames or any other string
+    * All strings in UiPath have to be placed in between quotes
+2. Boolean
+    * A type of variable that only has two possible values, true or false
+    * These variables enable you to make decisions, and thus have a better control over your flow
+3. Int32
+    * Used to store numeric information
+    * They can be used to perform equations or comparisons, pass important data and many others
+4. Array []
+    * The array variable is a type of variable which enables you to store multiple values of the same type
+    * UiPath Studio supports as many types of arrays as it does types of variables
+    * You can create an array of numbers, one of strings, one of boolean values and so on
+5. Date and Time
+    * The date and time variable is a type of variable that enables you to store information about any date and time
+    * This type of variable can be found in the **Browse and Select a .Net Type** window, under the System namespace `System.DateTime`
+6. Data Table
+    * DataTable variables represent a type of variable that can store big pieces of information
+    * Act as a database or a simple spreadsheet with rows and columns
+    * They can be found in the **Browse and Select a .Net Type** window, under the System.Data namespace (System.Data.DataTable)
+    * These variables can be useful to migrate specific data from a database to another, extract information from a website and store it locally in a spreadsheet and many others
+
+##### Reference
+[https://docs.uipath.com/studio/docs/types-of-variables](https://docs.uipath.com/studio/docs/types-of-variables)
+
+#### Propietary Variables
+1. GenericValue
+    * A type of variable that can store any kind of data, including text, numbers, dates, and arrays, and is particular to UiPath Studio
+    * Automatically converted to other types, in order to perform certain actions
+2. QueueItem
+
+##### Reference
+[https://docs.uipath.com/studio/docs/uipath-proprietary-variables](https://docs.uipath.com/studio/docs/uipath-proprietary-variables)
 
 ---
 
@@ -271,9 +341,34 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 
 > Identify and describe how dynamic versus static selectors are used
 
+#### Selectors
+* Store the attributes of a graphical user interface element and its parents, in the shape of an XML fragment
+* Most of the time, selectors are automatically generated by Studio and do not require further input from you, especially if the apps you are trying to automate have a static user interface
+
+#### Dynamic Selectors
+* Uses a variable or an argument as a property for the attribute of your target tag
+* Allows the selector to easily identify a target element based on the value of the variable or argument, and not an exact string, which might change, depending on interactions inside your automation project
+* The variable or argument can be changed to interact with a different element, without changing the selector itself
+
+---
+
 > Identify and describe how partial versus full selectors are used
 
+#### Full Selectors
+* Contains all the tags and attributes needed to identify a UI element, including top-level window
+* Generated by the Basic recorder
+* Recommended when switching between multiple windows
+
+#### Partial Selectors
+* Generated by the Desktop recorder
+* Do not contain information about the top-level window
+* Recommended when performing multiple actions in the same window
+
+---
+
 > Identify and describe how and when to use the Anchor Base activity
+
+
 
 > Demonstrate and describe the use of a reliable selector and how to use UI Explorer to modify selectors
 
@@ -289,7 +384,40 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 
 > Describe the importance and reasons why data manipulation is used; for example, conversion from one data type to another data type
 
+#### Data Manipulation
+* The process of modifying, structuring, formatting, or sorting data in order to facilitate its usage and increase its management capabilities
+
+---
+
 > Explain how strings can be manipulated; for example, by using VB string methods and RegEx Builder
+
+#### String Manipulation
+* It is done by using String Methods borrowed from VB.Net. Below are some of the most common methods used in RPA
+1. String.Concat
+2. Contains
+3. String.Format
+4. IndexOf
+5. LastIndexOf
+6. String.Join
+7. Replace
+8. Split
+9. Substring
+
+#### RegEx Builder
+* Also known as Regular Expression (REGEX, or regexp) is a specific search pattern that can be used to easily match, locate and manage text
+* Typical uses of RegEx includes:
+    * Input validation
+    * String parsing
+    * Data scraping
+    * String manipulation
+
+#### RegEx Builder Methods
+1. Matches
+2. IsMatch
+3. Replace
+
+##### Reference
+[https://academy.uipath.com/courses/data-manipulation-with-strings-in-studio](https://academy.uipath.com/courses/data-manipulation-with-strings-in-studio)
 
 >  Explain how to iterate and manipulate data on various collections; for example, lists, datatables, dictionaries
 
