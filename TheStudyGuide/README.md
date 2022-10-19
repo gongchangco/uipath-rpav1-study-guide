@@ -378,6 +378,46 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 
 > Explain how to use Control Flow activities and workflow types (sequences and flowcharts)
 
+#### Control Flow
+* The order in which activities are executed or evaluated in a software project
+* A concept borrowed from computer science that refers to the order in which actions are performed in an automation
+* A proper Control Flow can be achieved through the intelligent use of variables and activities
+* All of these activities can be found in the `Activities` panel, under `Workflow` > `Control`
+
+##### Reference
+[https://docs.uipath.com/studio/docs/about-control-flow](https://docs.uipath.com/studio/docs/about-control-flow)
+
+#### Control Flow Activities
+
+1. The Assign Activity
+    * It enables you to assign a value to a variable
+    * You can use an Assign activity to increment the value of a variable in a loop
+2. The Delay Activity
+    * Enables you to pause the automation for a custom period of time (in the hh:mm:ss format)
+    * Useful in projects that require good timing, such as waiting for a specific application to start 
+3. The Do While Activity
+
+4. The If Activity
+
+5. The Switch Activity
+
+6. The While Activity
+
+7. The For Each Activity
+
+8. The Break Activity
+
+#### Types of Workflows
+1. Sequences
+2. Flowcharts
+3. State Machines
+4. Global Exception Handler
+
+
+
+
+---
+
 > Explain the importance of error handling and how it can be implemented
 
 ### UiPath Studio – Data Manipulation
@@ -419,11 +459,16 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 ##### Reference
 [https://academy.uipath.com/courses/data-manipulation-with-strings-in-studio](https://academy.uipath.com/courses/data-manipulation-with-strings-in-studio)
 
+---
+
 >  Explain how to iterate and manipulate data on various collections; for example, lists, datatables, dictionaries
 
 ### UiPath Automation Concepts and Techniques
 
 > Identify and explain how email automation is used
+
+
+---
 
 > Identify and describe Microsoft Excel functions and how Excel activities are used for spreadsheet manipulation
 
@@ -434,4 +479,72 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 
 > Identify and describe how UiPath Orchestrator queues and assets are used
 
+#### Queues
+* Queues are containers that can hold an unlimited number of items
+* Items can store multiple types of data, by default in free form
+* If specific data schema is needed, it can be uploaded at queue creation in the form of a JSON file
+* Queues in Orchestrator will store items and enable their distribution individually to robots for processing
+* Queues also monitor the status of the items based on process outcomes
+
+
+#### Creating a Queue
+1. In the `Queues` page, click `Add Queue`
+2. Click `Create a new queue`
+3. In the `Name` field, enter a name for the queue
+4. In the `Description` field, add a description for the queue
+5. Select the `Enforce unique references` checkbox if you want transaction references to be unique or not (Optional)
+6. Select the `Store in encrypted format` checkbox if you want to have queue items data and output encrypted in the database (Optional)
+7. Select the `Auto Retry` checkbox if you want to use the auto-retry mechanism
+    * In the `Max # of retries` field, input the number of times you want a queue item to be retried
+8. Upload a JSON schema for any or each of `Specific Data`, `Output Data`, and `Analytics Data` by using the corresponding `Browse` button
+9. Enable SLA predictions if you want to better control the processing time of your items, and to assess what resources you need such that they meet their deadline
+    * If enabled, configure the following fields:
+        1. From the `Process` drop-down, select the process which handles the queue items, and then fill in the SLA value below (maximum value is 90 days)
+        2. Enable Risk SLA if you want to define a buffer zone before the actual SLA, and fill in the value below (risk SLA must be smaller than the SLA)
+10. Click `Add`
+
+#### Editing Queues
+* You are able to update an existing queue settings such as:
+    * The queue `Name` and `Description`
+    * The `Auto Retry` option
+    * The maximum number of retries
+
+##### For Name or Description
+1. In the `Queues` page, click the `More Options` button for the desired queue
+2. Click `Edit`, then the `Update Queue` wizard is displayed
+3. In the `Name` field, enter the new name for the selected queue
+4. In the `Description` field, update the description of your queue
+5. Click `Update`
+
+##### For Auto Retry
+1. In the `Queues` page, click the `More Options` button for the desired queue
+2. Click `Edit`, then the `Update Queue` wizard is displayed
+3. In the `Auto Retry` field, select the option you need
+4. Click `Update`
+
+##### Reference
+[https://docs.uipath.com/orchestrator/docs/managing-queues-in-orchestrator](https://docs.uipath.com/orchestrator/docs/managing-queues-in-orchestrator)
+
 > Identify and explain how to publish projects to UiPath Orchestrator
+
+1. In Studio, create a new project
+2. In the `Design` ribbon tab, click `Publish`
+3. In the `Package` properties tab:
+    * Enter a name for the package
+    * In the `Version` section, review the Current Version of your project, and type a New Version if needed
+    * In the `Project` tags box, you can add one or more tags to the project, either by creating new ones or by reusing tagsalready defined in Orchestrator
+    * In the `Release Notes` text box, enter details about the version and other relevant information
+4. Click `Next`
+5. In the `Publish` options tab, select where to publish the project. The available options depend on the type of project you are publishing:
+    * For processes:
+        * Orchestrator Tenant Process Feed
+        * Assistant
+        * Custom
+    * For test cases:
+        * The same options available for processes
+    * For libraries and UI libraries:
+        * Local
+        * Custom
+    * For templates:
+        * Local
+        * Custom
