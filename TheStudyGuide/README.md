@@ -175,6 +175,8 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 #### Locals Panel
 
 #### Call Stack Panel
+* The Call Stack panel displays the next activity to be executed and its parent containers when the project is paused in debugging
+* The panel is displayed during execution in debug mode and it gets populated after using Step Into, Break, Slow Step, or after the execution was paused because an error or a breakpoint was encountered
 
 #### Breakpoints Panel
 * Breakpoints are used to purposely pause the debugging process on an activity which may trigger execution issues
@@ -369,8 +371,34 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 > Identify and describe how and when to use the Anchor Base activity
 
 
+---
 
 > Demonstrate and describe the use of a reliable selector and how to use UI Explorer to modify selectors
+
+#### Recording
+* Help you save a lot of time when automating your business processes
+* This functionality enables you to easily capture a user’s actions on the screen and translates them into sequences
+
+##### Reference
+[https://docs.uipath.com/studio/docs/about-recording](https://docs.uipath.com/studio/docs/about-recording)
+
+#### Recording Types
+1. Basic
+    * Generates a full selector for each activity and no container
+    * The resulted automation is slower than one that uses containers and is suitable for single activities
+2. Desktop
+    * Suitable for all types of desktop apps and multiple actions
+    * Faster than the `Basic` recorder, and generates a container (with the selector of the top-level window) in which activities are enclosed, and partial selectors for each activity
+3. Web
+    * Designed for recording in web apps and browsers, generates containers and uses the `Simulate Type/Click` input method by default
+4. Image
+    * Used to record virtualized environments or SAP
+    * It permits only image, text and keyboard automation, and requires explicit positioning
+5. Native Citrix
+    * Is the equivalent of the `Desktop` recorder, but for Citrix environments
+    * Only use this in your Native Citrix automation projects
+
+[https://docs.uipath.com/studio/docs/about-recording-types](https://docs.uipath.com/studio/docs/about-recording-types)
 
 ### UiPath Studio – Control Flow
 
@@ -524,6 +552,42 @@ The debugging actions located on both the Design or Debug ribbon tabs. However, 
 
 ##### Reference
 [https://docs.uipath.com/orchestrator/docs/managing-queues-in-orchestrator](https://docs.uipath.com/orchestrator/docs/managing-queues-in-orchestrator)
+
+#### Populating & Consuming Queues
+* Queues are typically used with the Dispatcher-Performer model of running automation
+* The Dispatcher is the stage in which data is taken and fed into a queue in Orchestrator, from where it can be taken and processed by robots
+* The Performer is the stage in which data is processed
+
+#### Assets
+* Assets usually represent shared variables or credentials that can be used in different automation projects
+* They allow you to store specific information so that the Robots can easily access it
+
+#### Types of Assets
+1. Text         : Stores only strings (it is not required to add quotation marks)
+2. Bool         : Supports true or false values
+3. Integer      : Stores only whole numbers
+4. Credential   : Contains usernames and passwords that the Robot requires to execute particular processes, such as login details for SAP or SalesForce
+
+#### Managing Assets
+
+##### Through Studio Using the Get Asset Activity
+1. In Orchestrator, create a string, boolean or integer asset
+2. In Studio, create a string, boolean or integer variable, depending on the type of asset you want to use from Orchestrator
+3. From the `Activities` panel, drag a `Get Asset` activity to the `Main` panel
+4. In the `Properties` panel, in the `AssetName` field, type the name of the Orchestrator asset you want to use, and place it between quotation marks
+5. In the `Properties` panel, in the `Value` field, enter the variable created at step 2
+    * This variable stores information from the specified Orchestrator asset, if the `AssetName` coincides with the asset name that is stored in the Orchestrator database, and the Robot has the required permissions
+
+##### Through Studio Using the Get Credential Activity
+1. In Orchestrator, create a `Credential` asset
+2. In Studio, create a String variable which is used to store the username part of the credentials
+3. Create a SecureString variable to store the password
+4. In the `Properties` panel, in the `AssetName` field, type the name of the credential asset, as it is in Orchestrator, and place it between quotation marks
+5. In the `Properties` panel, in the `Password` field, enter the SecureString variable
+6. In the `Properties` panel, in the `Username` field, enter the string variable
+    * The credential asset stored in Orchestrator can be used by the Robot too, as long as the AssetName coincides with the asset name that is stored in the Orchestrator database, and the Robot has the required permissions
+
+---
 
 > Identify and explain how to publish projects to UiPath Orchestrator
 
